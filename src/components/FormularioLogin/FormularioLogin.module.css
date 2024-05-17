@@ -24,7 +24,7 @@
     background-color: #CADBE3;
     border: none;
     border-radius: 6px;
-    padding: 0.7em;
+    padding: 1em;
 }
 
 .label {
@@ -34,11 +34,11 @@
 .esqueciSenha {
     color: gray;
     text-align: right;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .botaoEntrar {
-    margin: 1em auto;
+    margin: 0 auto;
     width: 55%;
     background-color: #001B60;
     color: white;
