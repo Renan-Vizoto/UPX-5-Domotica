@@ -21,12 +21,13 @@
 
 .logo {
     width: 160px;
+    margin-top: 3em;
 }
 
 .linhaOu {
     display: flex;
     align-items: center;
-    gap: 1em;
+    gap: 0.5em;
     font-size: 19px;
 }
 

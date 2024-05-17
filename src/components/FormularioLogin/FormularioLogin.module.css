@@ -38,7 +38,7 @@
 }
 
 .botaoEntrar {
-    margin: 0 auto;
+    margin: 1em auto 0.4em auto;
     width: 55%;
     background-color: #001B60;
     color: white;
