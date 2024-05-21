@@ -1,0 +1,35 @@
+.calendarioContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 1.5em 2em 1.5em;
+}
+
+.selectedDate {
+    margin-top: 20px;
+}
+
+.calendario {
+    border: none;
+    border-radius: 8px;
+    background-color: #d4e0fffc;
+}
+
+.tutorialDiv {
+    width: 350px;
+    max-width: 100%;
+    margin-bottom: 0.4em;
+}
+
+.tutorialLink {
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    text-decoration: none;
+    color: #707070;
+    cursor: pointer;
+}
+
+.tutorialInfo {
+    opacity: 50%;
+}
