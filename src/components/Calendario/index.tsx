@@ -25,10 +25,6 @@ function Calendario() {
                 value={date}
                 className={style.calendario}
             />
-            <div className={style.selectedDate}>
-                <h3>Data Selecionada:</h3>
-                <p>{date ? date.toDateString() : 'Nenhuma data selecionada'}</p>
-            </div>
         </div>
     );
 }
