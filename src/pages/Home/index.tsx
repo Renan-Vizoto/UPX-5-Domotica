@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import style from './Home.module.css';
 import Calendario from "../../components/Calendario";
 import LogoHome from "../../assets/img/home_logo.png";
 import BackgroundPerfil from "../../assets/img/background_perfil.png";
 
 export default function Home() {
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+    const navigate = useNavigate();
+
+    const handleDateChange = (date: Date | null) => {
+        setSelectedDate(date);
+    };
+
+    const handleProgramarHorarioClick = () => {
+        navigate('/programar-horarios', { state: { date: selectedDate } });
+    };
+
     return (
         <div className={style.home}>
             <header className={style.header}>
@@ -21,11 +33,11 @@ export default function Home() {
                 </div>
 
                 <div className={style.calendarioDiv}>
-                    <Calendario />
+                    <Calendario onDateChange={handleDateChange} />
                 </div>
 
                 <div className={style.horarios}>
-                    <a href="#">Programar horários</a>
+                    <button onClick={handleProgramarHorarioClick}>Programar horários</button>
                 </div>
             </section>
 
@@ -35,5 +47,5 @@ export default function Home() {
                 </a>
             </footer>
         </div>
-    )
+    );
 }

@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import style from './Calendario.module.css';
 import IconInfo from "../../assets/img/info-circle-fill.svg";
 
-function Calendario() {
+interface CalendarioProps {
+    onDateChange: (date: Date | null) => void;
+}
+
+const Calendario: React.FC<CalendarioProps> = ({ onDateChange }) => {
     const [date, setDate] = useState<Date | null>(new Date());
+
+    useEffect(() => {
+        onDateChange(date);
+    }, [date, onDateChange]);
 
     const handleDateChange = (value: Date | Date[] | null) => {
         if (Array.isArray(value)) {
@@ -27,6 +35,6 @@ function Calendario() {
             />
         </div>
     );
-}
+};
 
 export default Calendario;

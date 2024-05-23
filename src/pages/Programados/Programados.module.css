@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #90A7E3;
+    color: white;
+    padding: 1em 0.5em;
+}
+
+.horarios {
+    margin: 0.3em;
+    padding: 0.4em 1em;
+    border: 1px solid rgb(120, 120, 120);
+    border-radius: 8px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-top: auto; /* Empurra o contêiner de botões para o final do contêiner principal */
+    margin-bottom: 3em;
+}
+
+.button {
+    margin: 0 3em;
+    text-decoration: none;
+    background-color: #90A7E3;
+    color: white;
+    padding: 0.6em 0em;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+}
