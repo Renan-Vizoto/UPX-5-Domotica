@@ -1,92 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 .home {
-    padding-top: 1em;
+  padding-top: 1em;
+  height: 100vh;
+  width: 100%;
+  position: relative; /* Change to relative for better footer positioning */
 }
 
 .header {
-    background-color: #6a789b;
-    color: white;
-    font-weight: 300;
-    width: 80%;
-    height: 12vh;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 2.5em;
-    border-radius: 50px 0 0 50px;
+  background-color: #6a789b;
+  color: white;
+  font-weight: 300;
+  width: 80%;
+  height: 12vh;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2.5em;
+  border-radius: 50px 0 0 50px;
 }
 
 .backgroundPerfil {
-    margin-left: 0.8em;
+  margin-left: 0.8em;
 }
 
 .ola {
-    font-size: 20px;
-    font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .h3Pai {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    background-color: #90A7E3;
-    color: white;
-    margin-top: 1em;
-    padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #90a7e3;
+  color: white;
+  margin-top: 1em;
+  padding: 0.5em;
 }
 
 .h3 {
-    width: 80%;
-    font-weight: 300;
+  width: 80%;
+  font-weight: 300;
 }
 
 .horarios {
-    text-align: center;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 5px;
 }
 
 .horarios button {
-    text-decoration: none;
-    background-color: #90A7E3;
-    color: white;
-    padding: 0.6em 1.8em;
-    border-radius: 8px;
-    font-size: 20px;
-    cursor: pointer;
-    border: none;
+  text-decoration: none;
+  background-color: #90a7e3;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  width: 160px;
+}
+
+.principalSection {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: calc(115vh - 12vh - 8vh); /* Dynamic height calculation */
+}
+.divBotoes {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 5px;
+  overflow: scroll;
 }
 
 .menuNavegacao {
-    position: fixed;
-    bottom: 0;
-    width: 100%; /* Garante que o footer ocupe toda a largura da viewport */
-    background-color: #90A7E3; /* Define uma cor de fundo para o footer */
-    text-align: center; /* Centraliza o conteúdo do footer */
-    padding: 1em 0; /* Adiciona padding ao footer */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao footer */
+  bottom: 0;
+  width: 100%; /* Garante que o footer ocupe toda a largura da viewport */
+  background-color: #90a7e3; /* Define uma cor de fundo para o footer */
+  text-align: center; /* Centraliza o conteúdo do footer */
+  padding: 1em 0; /* Adiciona padding ao footer */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao footer */
+  position: fixed;
+  height: 8vh;
 }
 
 .logoContainer {
-    display: inline-block;
-    background-color: #fff; /* Define um fundo branco para o contêiner */
-    border-radius: 50%; /* Torna o contêiner circular */
-    padding: 0.5em; /* Adiciona padding para criar o "buraco" ao redor da imagem */
+  display: inline-block;
+  background-color: #fff; /* Define um fundo branco para o contêiner */
+  border-radius: 50%; /* Torna o contêiner circular */
+  padding: 0.5em; /* Adiciona padding para criar o "buraco" ao redor da imagem */
 }
 
 .logoHome {
-    display: block;
-    width: 40px; /* Ajuste o tamanho conforme necessário */
-    height: 40px; /* Ajuste o tamanho conforme necessário */
-    border-radius: 50%; /* Torna a imagem circular */
+  display: block;
+  width: 40px; /* Ajuste o tamanho conforme necessário */
+  height: 40px; /* Ajuste o tamanho conforme necessário */
+  border-radius: 50%; /* Torna a imagem circular */
 }
 
 .menuNavegacao a {
-    display: inline-block;
-    padding: 0.5em;
+  display: inline-block;
+  padding: 0.5em;
 }

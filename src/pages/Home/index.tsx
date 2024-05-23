@@ -16,6 +16,9 @@ export default function Home() {
     const handleProgramarHorarioClick = () => {
         navigate('/programar-horarios', { state: { date: selectedDate } });
     };
+    const handleHorariosProgramadosClick = () => {
+        navigate('/horarios-programados', { state: { date: selectedDate } });
+    };
 
     return (
         <div className={style.home}>
@@ -27,7 +30,7 @@ export default function Home() {
                 </div>
             </header>
 
-            <section>
+            <div className={style.principalSection}>
                 <div className={style.h3Pai}>
                     <h3 className={style.h3}>Selecione a data para programar a medicação</h3>
                 </div>
@@ -36,10 +39,17 @@ export default function Home() {
                     <Calendario onDateChange={handleDateChange} />
                 </div>
 
-                <div className={style.horarios}>
-                    <button onClick={handleProgramarHorarioClick}>Programar horários</button>
+                <div className={style.divBotoes}>
+                    <div className={style.horarios}>
+                        <button onClick={handleProgramarHorarioClick}>Programar horários</button>
+                    </div>
+
+                    <div className={style.horarios}>
+                        <button onClick={handleHorariosProgramadosClick}>Horarios programados</button>
+                    </div>
                 </div>
-            </section>
+
+            </div>
 
             <footer className={style.menuNavegacao}>
                 <a href="#" className={style.logoContainer}>
