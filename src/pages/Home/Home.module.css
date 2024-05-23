@@ -8,9 +8,9 @@
 
 .home {
   padding-top: 1em;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  position: relative; /* Change to relative for better footer positioning */
+  overflow-y: hidden;
 }
 
 .header {
@@ -72,15 +72,14 @@
 .principalSection {
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: calc(115vh - 12vh - 8vh); /* Dynamic height calculation */
+  /* Enable vertical scrolling */
+  height: calc(90vh - 12vh - 8vh); /* Dynamic height calculation */
 }
 .divBotoes {
   display: flex;
   flex-direction: row;
   width: 100%;
   padding: 5px;
-  overflow: scroll;
 }
 
 .menuNavegacao {
@@ -92,10 +91,16 @@
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao footer */
   position: fixed;
   height: 8vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logoContainer {
   display: inline-block;
+  position: relative;
+  z-index: 15;
+  margin-left: 20px;
+  margin-right: 20px;
   background-color: #fff; /* Define um fundo branco para o contêiner */
   border-radius: 50%; /* Torna o contêiner circular */
   padding: 0.5em; /* Adiciona padding para criar o "buraco" ao redor da imagem */
@@ -103,9 +108,11 @@
 
 .logoHome {
   display: block;
+  position: relative;
   width: 40px; /* Ajuste o tamanho conforme necessário */
   height: 40px; /* Ajuste o tamanho conforme necessário */
   border-radius: 50%; /* Torna a imagem circular */
+  z-index: 15;
 }
 
 .menuNavegacao a {

@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import style from './Home.module.css';
 import Calendario from "../../components/Calendario";
 import LogoHome from "../../assets/img/home_logo.png";
+import IconRelogio from '../../assets/img/relogio.png'
+import IconList from '../../assets/img/list.png'
 import BackgroundPerfil from "../../assets/img/background_perfil.png";
 
 export default function Home() {
@@ -39,21 +41,17 @@ export default function Home() {
                     <Calendario onDateChange={handleDateChange} />
                 </div>
 
-                <div className={style.divBotoes}>
-                    <div className={style.horarios}>
-                        <button onClick={handleProgramarHorarioClick}>Programar horários</button>
-                    </div>
-
-                    <div className={style.horarios}>
-                        <button onClick={handleHorariosProgramadosClick}>Horarios programados</button>
-                    </div>
-                </div>
-
             </div>
 
             <footer className={style.menuNavegacao}>
+                <a href="#" className={style.logoContainer} onClick={handleProgramarHorarioClick}>
+                    <img src={IconRelogio} alt="logo home" className={style.logoHome} />
+                </a>
                 <a href="#" className={style.logoContainer}>
                     <img src={LogoHome} alt="logo home" className={style.logoHome} />
+                </a>
+                <a href="#" className={style.logoContainer} onClick={handleHorariosProgramadosClick}>
+                    <img src={IconList} alt="logo home" className={style.logoHome} />
                 </a>
             </footer>
         </div>
