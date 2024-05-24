@@ -44,9 +44,9 @@ export default function Home() {
             </div>
 
             <footer className={style.menuNavegacao}>
-                <a href="#" className={style.logoContainer} onClick={handleProgramarHorarioClick}>
+                <button className={style.logoContainer} onClick={handleProgramarHorarioClick}>
                     <img src={IconRelogio} alt="logo home" className={style.logoHome} />
-                </a>
+                </button>
                 <a href="#" className={style.logoContainer}>
                     <img src={LogoHome} alt="logo home" className={style.logoHome} />
                 </a>
