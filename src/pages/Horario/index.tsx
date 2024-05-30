@@ -10,13 +10,19 @@ export default function Horario() {
     const { addHorario } = useHorarios();
 
     const [time, setTime] = useState<string>("");
+    const [error, setError] = useState<string>("");
 
     const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTime(event.target.value);
     };
 
     const handleProgramarClick = () => {
-        addHorario({ date, time }); // adicione o horário ao contexto
+        if (!date) {
+            setError("Por favor, volte para o calendário e selecione uma data.");
+            return;
+        }
+
+        addHorario({ date, time }); // Adicione o horário ao contexto
         navigate('/horarios-programados');
     };
 
@@ -40,9 +46,19 @@ export default function Horario() {
             </div>
 
             <div className={style.buttonContainer}>
-                <button onClick={handleProgramarClick} className={style.button}>Adicionar</button>
+                <button 
+                    onClick={handleProgramarClick} 
+                    className={style.button} 
+                    style={{ backgroundColor: date ? '' : 'gray', cursor: date ? 'pointer' : 'not-allowed' }}
+                    disabled={!date}
+                >
+                    Adicionar
+                </button>
                 <button onClick={handleVoltarClick} className={style.button}>Voltar para Calendário</button>
             </div>
+
+            {/* Verifique se a mensagem de erro é exibida aqui */}
+            {error && <p className={style.errorMessage}>{error}</p>}
         </div>
     );
 }

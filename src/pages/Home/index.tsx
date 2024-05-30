@@ -41,19 +41,12 @@ export default function Home() {
                     <Calendario onDateChange={handleDateChange} />
                 </div>
 
-            </div>
+                <div className={style.buttonContainer}>
+                    <button onClick={handleProgramarHorarioClick} className={style.button}>Adicionar</button>
+                    <button onClick={handleHorariosProgramadosClick} className={style.button}>Ver horários já Programados</button>
+                </div>
 
-            <footer className={style.menuNavegacao}>
-                <button className={style.logoContainer} onClick={handleProgramarHorarioClick}>
-                    <img src={IconRelogio} alt="logo home" className={style.logoHome} />
-                </button>
-                <a href="#" className={style.logoContainer}>
-                    <img src={LogoHome} alt="logo home" className={style.logoHome} />
-                </a>
-                <a href="#" className={style.logoContainer} onClick={handleHorariosProgramadosClick}>
-                    <img src={IconList} alt="logo home" className={style.logoHome} />
-                </a>
-            </footer>
+            </div>
         </div>
     );
 }

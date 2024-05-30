@@ -72,8 +72,6 @@
 .principalSection {
   display: flex;
   flex-direction: column;
-  /* Enable vertical scrolling */
-  height: calc(90vh - 12vh - 8vh); /* Dynamic height calculation */
 }
 .divBotoes {
   display: flex;
@@ -82,45 +80,32 @@
   padding: 5px;
 }
 
-.menuNavegacao {
-  bottom: 0;
-  width: 100%; /* Garante que o footer ocupe toda a largura da viewport */
-  background-color: #90a7e3; /* Define uma cor de fundo para o footer */
-  text-align: center; /* Centraliza o conteúdo do footer */
-  padding: 1em 0; /* Adiciona padding ao footer */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao footer */
-  position: fixed;
-  height: 8vh;
-  display: flex;
-  justify-content: space-between;
-}
-
-.logoContainer {
-  display: inline-block;
-  position: relative;
-  z-index: 15;
-  margin-left: 20px;
-  margin-right: 20px;
-  background-color: #fff; /* Define um fundo branco para o contêiner */
-  border-radius: 50%; /* Torna o contêiner circular */
-  padding: 0.5em; /* Adiciona padding para criar o "buraco" ao redor da imagem */
-}
-
-.logoHome {
-  display: block;
-  position: relative;
-  width: 40px; /* Ajuste o tamanho conforme necessário */
-  height: 40px; /* Ajuste o tamanho conforme necessário */
-  border-radius: 50%; /* Torna a imagem circular */
-  z-index: 15;
-}
-
 .menuNavegacao a {
   display: inline-block;
-  padding: 0.5em;
+  padding: 0.6em 0.7em 0.5em 0.7em;
 }
 
-.logoContainer {
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: auto; /* Empurra o contêiner de botões para o final do contêiner principal */
+  margin-bottom: 3em;
+}
+
+.button {
+  margin: 0 3em;
+  text-decoration: none;
+  background-color: #90A7E3;
+  color: white;
+  padding: 0.6em 0em;
+  border-radius: 8px;
+  font-size: 20px;
   cursor: pointer;
   border: none;
+}
+
+.errorMessage {
+  color: red;
+  margin-top: 10px;
 }

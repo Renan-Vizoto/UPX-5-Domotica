@@ -17,10 +17,18 @@ const Calendario: React.FC<CalendarioProps> = ({ onDateChange }) => {
 
     const handleDateChange = (value: Date | Date[] | null) => {
         if (Array.isArray(value)) {
-            setDate(value[0] || null);
-        } else {
-            setDate(value);
+            value = value[0] || null;
         }
+
+        const currentDate = new Date();
+        const selectedDate = new Date(value || currentDate); // Se o valor for nulo, use a data atual
+
+        if (selectedDate < currentDate) {
+            // Data selecionada é anterior à data atual, então não atualiza o estado
+            return;
+        }
+
+        setDate(selectedDate);
     };
 
     return (
