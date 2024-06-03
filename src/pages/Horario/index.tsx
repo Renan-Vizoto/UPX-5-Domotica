@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios'; // Importando o Axios
 import { useHorarios } from '../../context'; // Corrigido o caminho para o contexto
 import style from './Horario.module.css';
 
@@ -22,8 +23,25 @@ export default function Horario() {
             return;
         }
 
-        addHorario({ date, time }); // Adicione o horário ao contexto
-        navigate('/horarios-programados');
+        const isoDate = new Date(date).toISOString().split('T')[0]; // Formata a data para o padrão ISO sem a parte do tempo
+        const [hours, minutes] = time.split(':');
+        const dateObj = new Date(date);
+        dateObj.setUTCHours(Number(hours) + 3, Number(minutes), 0, 0); // Adiciona 3 horas ao horário UTC
+        const isoDateTime = dateObj.toISOString(); // Converte para o formato ISO
+
+        axios.post('http://localhost:3333/schedule', {
+            time: isoDateTime,
+            value: '1' // O valor desejado, pode ser substituído por qualquer valor que você queira enviar
+        })
+        .then((response) => {
+            console.log(response.data);
+            addHorario({ date, time }); // Adicione o horário ao contexto
+            navigate('/horarios-programados');
+        })
+        .catch((error) => {
+            console.error('Erro ao programar horário:', error);
+            setError('Erro ao programar horário. Tente novamente.');
+        });
     };
 
     const handleVoltarClick = () => {
@@ -46,9 +64,9 @@ export default function Horario() {
             </div>
 
             <div className={style.buttonContainer}>
-                <button 
-                    onClick={handleProgramarClick} 
-                    className={style.button} 
+                <button
+                    onClick={handleProgramarClick}
+                    className={style.button}
                     style={{ backgroundColor: date ? '' : 'gray', cursor: date ? 'pointer' : 'not-allowed' }}
                     disabled={!date}
                 >
@@ -57,7 +75,6 @@ export default function Horario() {
                 <button onClick={handleVoltarClick} className={style.button}>Voltar para Calendário</button>
             </div>
 
-            {/* Verifique se a mensagem de erro é exibida aqui */}
             {error && <p className={style.errorMessage}>{error}</p>}
         </div>
     );
