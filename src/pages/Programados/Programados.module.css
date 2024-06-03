@@ -1,41 +1,84 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 90vh;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
 }
 
 .header {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    background-color: #90A7E3;
-    color: white;
-    padding: 1em 0.5em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #90a7e3;
+  color: white;
+  padding: 1em 0.5em;
 }
 
 .horarios {
-    margin: 0.3em;
-    padding: 0.4em 1em;
-    border: 1px solid rgb(120, 120, 120);
-    border-radius: 8px;
+  margin: 0.3em;
+  padding: 0.4em 1em;
+  border: 1px solid rgb(120, 120, 120);
+  border-radius: 8px;
 }
 
 .buttonContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    margin-top: auto; /* Empurra o contêiner de botões para o final do contêiner principal */
-    margin-bottom: 3em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: auto; /* Empurra o contêiner de botões para o final do contêiner principal */
+  margin-bottom: 3em;
 }
 
 .button {
-    margin: 0 3em;
-    text-decoration: none;
-    background-color: #90A7E3;
-    color: white;
-    padding: 0.6em 0em;
-    border-radius: 8px;
-    font-size: 20px;
-    cursor: pointer;
-    border: none;
+  margin: 0 3em;
+  text-decoration: none;
+  background-color: #90a7e3;
+  color: white;
+  padding: 0.6em 0em;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+}
+
+.logoContainer {
+  display: flex;
+  position: relative;
+  z-index: 15;
+  height: 80%;
+  aspect-ratio: 1 / 1;
+  background-color: #fff; /* Define um fundo branco para o contêiner */
+  border-radius: 9999px; /* Torna o contêiner circular */
+  /* Adiciona padding para criar o "buraco" ao redor da imagem */
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.menuNavegacao {
+  bottom: 0;
+  width: 100%; /* Garante que o footer ocupe toda a largura da viewport */
+  background-color: #90a7e3; /* Define uma cor de fundo para o footer */
+  text-align: center; /* Centraliza o conteúdo do footer */
+  padding: 1em 0; /* Adiciona padding ao footer */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao footer */
+  position: fixed;
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoHome {
+  display: block;
+  position: relative;
+  width: 40px; /* Ajuste o tamanho conforme necessário */
+  height: 40px; /* Ajuste o tamanho conforme necessário */
+  border-radius: 9999px; /* Torna a imagem circular */
+  z-index: 15;
+}
+
+.menuNavegacao a {
+  display: inline-block;
+  padding-top: 10px;
 }

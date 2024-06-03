@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useHorarios } from '../../context'; // Corrigido o caminho para o contexto
 import style from './Horario.module.css';
+import LogoHome from "../../assets/img/home_logo.png";
+import IconRelogio from '../../assets/img/relogio.png'
+import IconList from '../../assets/img/list.png'
 
 export default function Horario() {
     const location = useLocation();
@@ -26,9 +29,6 @@ export default function Horario() {
         navigate('/horarios-programados');
     };
 
-    const handleVoltarClick = () => {
-        navigate('/home');
-    };
 
     return (
         <div className={style.container}>
@@ -43,22 +43,46 @@ export default function Horario() {
                     Defina o horário em que o dispenser vai abrir
                 </p>
                 <input type="time" className={style.horario} value={time} onChange={handleTimeChange} />
+
+                <select className={style.mobileSelect}>
+                    <option value="">Selecione um slot</option>
+                    <option value="option1">Slot 1</option>
+                    <option value="option2">Slot 2</option>
+                    <option value="option3">Slot 3</option>
+                    <option value="option3">Slot 4</option>
+                    <option value="option3">Slot 5</option>
+                    <option value="option3">Slot 6</option>
+                    <option value="option3">Slot 7</option>
+                    <option value="option3">Slot 8</option>
+                </select>
             </div>
 
             <div className={style.buttonContainer}>
-                <button 
-                    onClick={handleProgramarClick} 
-                    className={style.button} 
+                <button
+                    onClick={handleProgramarClick}
+                    className={style.button}
                     style={{ backgroundColor: date ? '' : 'gray', cursor: date ? 'pointer' : 'not-allowed' }}
                     disabled={!date}
                 >
                     Adicionar
                 </button>
-                <button onClick={handleVoltarClick} className={style.button}>Voltar para Calendário</button>
+
             </div>
 
             {/* Verifique se a mensagem de erro é exibida aqui */}
             {error && <p className={style.errorMessage}>{error}</p>}
+
+            <footer className={style.menuNavegacao}>
+                <span onClick={() => navigate("/programar-horarios")} className={style.logoContainer}>
+                    <img src={IconRelogio} alt="logo home" className={style.logoHome} />
+                </span>
+                <span onClick={() => navigate("/home")} className={style.logoContainer} style={{ backgroundColor: "transparent" }}>
+                    <img src={LogoHome} alt="logo home" className={style.logoHome} />
+                </span>
+                <span onClick={() => navigate("/horarios-programados")} className={style.logoContainer} style={{ backgroundColor: "transparent" }} >
+                    <img src={IconList} alt="logo home" className={style.logoHome} />
+                </span>
+            </footer>
         </div>
     );
 }
