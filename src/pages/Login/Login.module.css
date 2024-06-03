@@ -1,40 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Lalezar", system-ui;
+  margin: 0;
+  padding: 0;
+  font-family: "Lalezar", system-ui;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    width: 100%;
-    height: 100vh;
-    background-image: url('../../assets/img/background.png');
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-size: 130%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/img/background.png");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 130%;
 }
 
 .logo {
-    width: 160px;
-    margin-top: 3em;
+  width: 160px;
+  margin-top: 3em;
 }
 
 .linhaOu {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    font-size: 19px;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 19px;
 }
 
 .cadastro {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-.cadastro a{
-    color: #001B60;
+.cadastro a {
+  color: #001b60;
+}
+
+.logoContainer {
+  display: inline-block;
+  position: relative;
+  z-index: 15;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: #fff; /* Define um fundo branco para o contêiner */
+  border-radius: 9999px; /* Torna o contêiner circular */
+  padding: 0.5em; /* Adiciona padding para criar o "buraco" ao redor da imagem */
+}
+
+.menuNavegacao {
+  bottom: 0;
+  width: 100%; /* Garante que o footer ocupe toda a largura da viewport */
+  background-color: #90a7e3; /* Define uma cor de fundo para o footer */
+  text-align: center; /* Centraliza o conteúdo do footer */
+  padding: 1em 0; /* Adiciona padding ao footer */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra ao footer */
+  position: fixed;
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoHome {
+  display: block;
+  position: relative;
+  width: 40px; /* Ajuste o tamanho conforme necessário */
+  height: 40px; /* Ajuste o tamanho conforme necessário */
+  border-radius: 9999px; /* Torna a imagem circular */
+  z-index: 15;
+}
+
+.menuNavegacao a {
+  display: inline-block;
+  padding-top: 10px;
 }

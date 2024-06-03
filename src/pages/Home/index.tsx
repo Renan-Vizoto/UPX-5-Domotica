@@ -18,9 +18,7 @@ export default function Home() {
     const handleProgramarHorarioClick = () => {
         navigate('/programar-horarios', { state: { date: selectedDate } });
     };
-    const handleHorariosProgramadosClick = () => {
-        navigate('/horarios-programados', { state: { date: selectedDate } });
-    };
+
 
     return (
         <div className={style.home}>
@@ -42,9 +40,21 @@ export default function Home() {
                 </div>
 
                 <div className={style.buttonContainer}>
-                    <button onClick={handleProgramarHorarioClick} className={style.button}>Adicionar</button>
-                    <button onClick={handleHorariosProgramadosClick} className={style.button}>Ver horários já Programados</button>
+                    <button onClick={handleProgramarHorarioClick} className={style.button}>Novo horário</button>
+
                 </div>
+
+                <footer className={style.menuNavegacao}>
+                    <span onClick={() => navigate("/programar-horarios")} className={style.logoContainer} style={{ backgroundColor: "transparent" }}>
+                        <img src={IconRelogio} alt="logo home" className={style.logoHome} />
+                    </span>
+                    <span onClick={() => navigate("/home")} className={style.logoContainer} >
+                        <img src={LogoHome} alt="logo home" className={style.logoHome} />
+                    </span>
+                    <span onClick={() => navigate("/horarios-programados")} className={style.logoContainer} style={{ backgroundColor: "transparent" }} >
+                        <img src={IconList} alt="logo home" className={style.logoHome} />
+                    </span>
+                </footer>
 
             </div>
         </div>

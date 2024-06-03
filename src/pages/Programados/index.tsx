@@ -2,6 +2,9 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useHorarios } from '../../context';
 import style from './Programados.module.css';
+import LogoHome from "../../assets/img/home_logo.png";
+import IconRelogio from '../../assets/img/relogio.png'
+import IconList from '../../assets/img/list.png'
 
 export default function Programados() {
     const navigate = useNavigate();
@@ -35,6 +38,18 @@ export default function Programados() {
                 <button onClick={handleProgramarClick} className={style.button}>Adicionar Novo Horário</button>
                 <button onClick={handleVoltarClick} className={style.button}>Voltar para Calendário</button>
             </div>
+
+            <footer className={style.menuNavegacao}>
+                <span onClick={() => navigate("/programar-horarios")} className={style.logoContainer} style={{ backgroundColor: "transparent" }}>
+                    <img src={IconRelogio} alt="logo home" className={style.logoHome} />
+                </span>
+                <span onClick={() => navigate("/home")} className={style.logoContainer} style={{ backgroundColor: "transparent" }}>
+                    <img src={LogoHome} alt="logo home" className={style.logoHome} />
+                </span>
+                <span onClick={() => navigate("/horarios-programados")} className={style.logoContainer}  >
+                    <img src={IconList} alt="logo home" className={style.logoHome} />
+                </span>
+            </footer>
         </div>
     );
 }
