@@ -45,7 +45,7 @@ export default function Home() {
                 </div>
 
                 <footer className={style.menuNavegacao}>
-                    <span onClick={() => navigate("/programar-horarios")} className={style.logoContainer} style={{ backgroundColor: "transparent" }}>
+                    <span onClick={handleProgramarHorarioClick} className={style.logoContainer} style={{ backgroundColor: "transparent" }}>
                         <img src={IconRelogio} alt="logo home" className={style.logoHome} />
                     </span>
                     <span onClick={() => navigate("/home")} className={style.logoContainer} >

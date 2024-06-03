@@ -4,8 +4,8 @@ import axios from 'axios'; // Importando o Axios
 import { useHorarios } from '../../context'; // Corrigido o caminho para o contexto
 import style from './Horario.module.css';
 import LogoHome from "../../assets/img/home_logo.png";
-import IconRelogio from '../../assets/img/relogio.png'
-import IconList from '../../assets/img/list.png'
+import IconRelogio from '../../assets/img/relogio.png';
+import IconList from '../../assets/img/list.png';
 
 export default function Horario() {
     const location = useLocation();
@@ -15,6 +15,7 @@ export default function Horario() {
 
     const [time, setTime] = useState<string>("");
     const [error, setError] = useState<string>("");
+    const [slot, setSlot] = useState<string>("1");
 
     const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTime(event.target.value);
@@ -34,19 +35,24 @@ export default function Horario() {
 
         axios.post('http://localhost:3333/schedule', {
             time: isoDateTime,
-            value: '1' // O valor desejado, pode ser substituído por qualquer valor que você queira enviar
+            value: slot // O valor desejado, pode ser substituído por qualquer valor que você queira enviar
         })
-        .then((response) => {
-            console.log(response.data);
-            addHorario({ date, time }); // Adicione o horário ao contexto
-            navigate('/horarios-programados');
-        })
-        .catch((error) => {
-            console.error('Erro ao programar horário:', error);
-            setError('Erro ao programar horário. Tente novamente.');
-        });
+            .then((response: any) => {
+                console.log(response.data);
+                addHorario({ date, time }); // Adicione o horário ao contexto
+                navigate('/horarios-programados');
+            })
+            .catch((error: any) => {
+                console.error('Erro ao programar horário:', error);
+                setError('Erro ao programar horário. Tente novamente.');
+            });
     };
 
+    const handleVoltarClick = () => {
+        navigate('/home');
+    };
+
+    console.log(slot)
 
     return (
         <div className={style.container}>
@@ -61,17 +67,16 @@ export default function Horario() {
                     Defina o horário em que o dispenser vai abrir
                 </p>
                 <input type="time" className={style.horario} value={time} onChange={handleTimeChange} />
-
-                <select className={style.mobileSelect}>
+                <select className={style.mobileSelect} onChange={(e) => setSlot(e.target.value)}>
                     <option value="">Selecione um slot</option>
-                    <option value="option1">Slot 1</option>
-                    <option value="option2">Slot 2</option>
-                    <option value="option3">Slot 3</option>
-                    <option value="option3">Slot 4</option>
-                    <option value="option3">Slot 5</option>
-                    <option value="option3">Slot 6</option>
-                    <option value="option3">Slot 7</option>
-                    <option value="option3">Slot 8</option>
+                    <option value="1">Slot 1</option>
+                    <option value="2">Slot 2</option>
+                    <option value="3">Slot 3</option>
+                    <option value="4">Slot 4</option>
+                    <option value="5">Slot 5</option>
+                    <option value="6">Slot 6</option>
+                    <option value="7">Slot 7</option>
+                    <option value="8">Slot 8</option>
                 </select>
             </div>
 
@@ -84,13 +89,12 @@ export default function Horario() {
                 >
                     Adicionar
                 </button>
-
             </div>
 
             {error && <p className={style.errorMessage}>{error}</p>}
 
             <footer className={style.menuNavegacao}>
-                <span onClick={() => navigate("/programar-horarios")} className={style.logoContainer}>
+                <span onClick={() => navigate("/programar-horarios")} className={style.logoContainer} >
                     <img src={IconRelogio} alt="logo home" className={style.logoHome} />
                 </span>
                 <span onClick={() => navigate("/home")} className={style.logoContainer} style={{ backgroundColor: "transparent" }}>
